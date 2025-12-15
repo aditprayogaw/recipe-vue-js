@@ -1,0 +1,40 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  location: String!
+  photoUrl: String
+  bio: String
+}
+
+type Item @table {
+  title: String!
+  description: String!
+  category: Category!
+  status: String!
+  createdAt: Timestamp!
+  photos: [String]
+  location: String
+  poster: User
+}
+
+type Category @table {
+  name: String!
+  description: String
+}
+
+type Interest @table {
+  createdAt: Timestamp!
+  status: String!
+  message: String
+  interestedUser: User
+  item: Item
+}
+
+type Review @table {
+  rating: Int!
+  createdAt: Timestamp!
+  comment: String
+  reviewer: User
+  reviewedUser: User
+}
